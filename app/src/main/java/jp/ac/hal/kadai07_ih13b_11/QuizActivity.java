@@ -91,7 +91,9 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     private void endQuiz() {
-        this.updateStat(this.model.getStatistic());
+        Intent intent = new Intent(this, FinalActivity.class);
+        intent.putExtra(FinalActivity.RESULT_STAT, this.model.getStatistic());
+        this.startActivity(intent);
     }
 
     private void updateQuiz(QuizStat stat, Question quest) {

@@ -1,9 +1,11 @@
 package jp.ac.hal.kadai07_ih13b_11.model;
 
+import java.io.Serializable;
+
 /**
  * Represent statistics for a quiz.
  */
-public class QuizStat {
+public class QuizStat implements Serializable {
     /**
      * Count of correct questions.
      */
