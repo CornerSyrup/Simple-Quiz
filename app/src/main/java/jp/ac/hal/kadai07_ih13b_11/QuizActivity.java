@@ -41,21 +41,32 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     public void answerQuestion(View answerButton) {
+        // already ended
+        Question q = this.model.getQuestions();
+        if (q == null) {
+            this.endQuiz();
+            return;
+        }
+
         int focusIdx = this.rbgAns.indexOfChild(this.findViewById(this.rbgAns.getCheckedRadioButtonId()));
-        boolean correct = this.model.getQuestions().getAnswers()[focusIdx].isCorrect();
-        
+        boolean correct = q.getAnswers()[focusIdx].isCorrect();
         this.model.answered(correct);
 
-        Question q = this.model.getQuestions();
-        if (q != null) {
-            this.updateQuestion(this.model.getStatistic(), q);
-        } else {
-            this.updateStat(this.model.getStatistic());
+        // just finish last question
+        q = this.model.getQuestions();
+        if (q == null) {
+            this.endQuiz();
+            return;
         }
+        this.updateQuestion(this.model.getStatistic(), q);
     }
 
     public void resetChoice(View resetButton) {
         this.rbgAns.clearCheck();
+    }
+
+    private void endQuiz() {
+        this.updateStat(this.model.getStatistic());
     }
 
     private void updateQuestion(QuizStat stat, Question quest) {
