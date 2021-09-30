@@ -9,6 +9,10 @@ public class QuizStat {
      */
     int corrCount;
     /**
+     * Count of correct in a round.
+     */
+    int roundCorr;
+    /**
      * Count of total question.
      */
     int questCount;
@@ -45,6 +49,17 @@ public class QuizStat {
     public int getAnsweredCount() {
         return this.ansCount;
     }
+
+    /**
+     * Gets count of corrects and reset round.
+     *
+     * @return count of corrects in round.
+     */
+    public int getRountCorrectCount() {
+        int i = this.roundCorr;
+        this.roundCorr = 0;
+        return i;
+    }
 //#endregion
 
     /**
@@ -53,6 +68,7 @@ public class QuizStat {
      * @return New correct count.
      */
     int incrementCorrect() {
+        this.roundCorr++;
         return ++this.corrCount;
     }
 
