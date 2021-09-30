@@ -12,6 +12,10 @@ public class QuizStat {
      * Count of total question.
      */
     int questCount;
+    /**
+     * Count of answered question.
+     */
+    int ansCount;
 
     //#region Getters and Setters
 
@@ -21,7 +25,7 @@ public class QuizStat {
      * @return count of correct questions.
      */
     public int getCorrectCount() {
-        return corrCount;
+        return this.corrCount;
     }
 
     /**
@@ -30,17 +34,34 @@ public class QuizStat {
      * @return count of questions in quiz.
      */
     public int getQuestionCount() {
-        return questCount;
+        return this.questCount;
     }
 
-    //#endregion
+    /**
+     * Gets count of answered questions for now.
+     *
+     * @return count of answered questions for now.
+     */
+    public int getAnsweredCount() {
+        return this.ansCount;
+    }
+//#endregion
 
     /**
      * Increment the correct count and return it.
      *
      * @return New correct count.
      */
-    int correctIncrement() {
-        return ++corrCount;
+    int incrementCorrect() {
+        return ++this.corrCount;
+    }
+
+    /**
+     * Increment the answered count and return it.
+     *
+     * @return New answered count.
+     */
+    int incrementAnswered() {
+        return ++this.ansCount;
     }
 }

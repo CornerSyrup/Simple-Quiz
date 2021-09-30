@@ -36,8 +36,7 @@ public class QuizActivity extends AppCompatActivity {
         this.txtQue = this.findViewById(R.id.question);
         this.rbgAns = this.findViewById(R.id.answer_group);
 
-        this.updateQuestion(this.model.getStatistic(), this.model.getQuestions());
-        ((TextView) this.findViewById(R.id.question_count)).setText(Integer.toString(this.model.getStatistic().getQuestionCount()));
+        this.updateQuiz(this.model.getStatistic(), this.model.getQuestions());
     }
 
     public void answerQuestion(View answerButton) {
@@ -58,7 +57,7 @@ public class QuizActivity extends AppCompatActivity {
             this.endQuiz();
             return;
         }
-        this.updateQuestion(this.model.getStatistic(), q);
+        this.updateQuiz(this.model.getStatistic(), q);
     }
 
     public void resetChoice(View resetButton) {
@@ -69,13 +68,14 @@ public class QuizActivity extends AppCompatActivity {
         this.updateStat(this.model.getStatistic());
     }
 
-    private void updateQuestion(QuizStat stat, Question quest) {
+    private void updateQuiz(QuizStat stat, Question quest) {
         this.updateStat(stat);
         this.updateQuestion(quest);
     }
 
     private void updateStat(QuizStat stat) {
         ((TextView) this.findViewById(R.id.correct_count)).setText(Integer.toString(stat.getCorrectCount()));
+        ((TextView) this.findViewById(R.id.question_count)).setText(Integer.toString(this.model.getStatistic().getAnsweredCount()));
     }
 
     private void updateQuestion(Question question) {

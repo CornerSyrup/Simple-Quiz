@@ -65,8 +65,9 @@ public class Quiz {
      * @param correct Whether the player is correct.
      */
     public void answered(boolean correct) {
-        if (correct) this.stat.correctIncrement();
+        if (correct) this.stat.incrementCorrect();
 
+        this.stat.incrementAnswered();
         this.questions.remove();
     }
 }
