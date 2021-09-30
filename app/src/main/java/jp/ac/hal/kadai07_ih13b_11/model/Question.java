@@ -25,7 +25,7 @@ public class Question {
     private Answer correct;
 
     /**
-     * Initiate a new question.
+     * Instantiate a new question.
      */
     Question(String value) {
         this.value = value;
@@ -34,7 +34,7 @@ public class Question {
     }
 
     /**
-     * Initiate a new question.
+     * Instantiate a new question.
      *
      * @param value   Content of the question.
      * @param answers Possible answers.

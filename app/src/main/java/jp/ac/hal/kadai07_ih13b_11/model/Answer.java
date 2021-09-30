@@ -16,13 +16,13 @@ public class Answer {
     private boolean correct;
 
     /**
-     * Initiate a new answer.
+     * Instantiate a new answer.
      */
     Answer() {
     }
 
     /**
-     * Initiate a new answer.
+     * Instantiate a new answer.
      *
      * @param content Content of the answer.
      * @param correct Whether this answer is correct.
