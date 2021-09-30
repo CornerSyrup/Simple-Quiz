@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Kadai07_ih13b_11">
         <activity
-            android:name=".MainActivity"
+            android:name=".IntroActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
