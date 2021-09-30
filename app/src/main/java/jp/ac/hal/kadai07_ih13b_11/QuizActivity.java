@@ -21,6 +21,7 @@ public class QuizActivity extends AppCompatActivity {
 
     private TextView txtQue;
     private RadioGroup rbgAns;
+    private TextView lblQueNo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,7 @@ public class QuizActivity extends AppCompatActivity {
 
         this.txtQue = this.findViewById(R.id.question);
         this.rbgAns = this.findViewById(R.id.answer_group);
+        this.lblQueNo = this.findViewById(R.id.question_number);
 
         try {
             this.model.load(new QuizContentParser().parse(this.getResources().getXml(R.xml.quiz)));
@@ -104,6 +106,7 @@ public class QuizActivity extends AppCompatActivity {
 
     private void updateQuestion(Question question) {
         Answer[] ans = question.getAnswers();
+        this.lblQueNo.setText(Integer.toString(this.model.getStatistic().getAnsweredCount() + 1));
         this.txtQue.setText(question.getQuestion());
         this.rbgAns.removeAllViews();
 
