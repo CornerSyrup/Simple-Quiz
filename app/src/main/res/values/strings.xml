@@ -5,7 +5,8 @@
     <string name="answer_button">回答</string>
     <string name="reset_button">リセット</string>
     <string name="correct_rate">正解率：</string>
-    <string name="answer_correct">正解</string>
-    <string name="answer_wrong">不正解</string>
+    <string name="perform_well">よくできました！</string>
+    <string name="perform_unwell">もうひと踏ん張り！</string>
     <string name="blank_answer_warn">選択肢をどれか選んでください</string>
+    <string name="continue_quiz">クイズを続きます</string>
 </resources>

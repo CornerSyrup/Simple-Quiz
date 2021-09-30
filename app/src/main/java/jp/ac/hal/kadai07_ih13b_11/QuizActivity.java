@@ -1,5 +1,6 @@
 package jp.ac.hal.kadai07_ih13b_11;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioButton;
@@ -47,6 +48,8 @@ public class QuizActivity extends AppCompatActivity {
             return;
         }
 
+        QuizStat stat = this.model.getStatistic();
+
         int i = this.rbgAns.getCheckedRadioButtonId();
         if (i < 0) {
             Toast.makeText(this.getApplicationContext(), this.getText(R.string.blank_answer_warn), Toast.LENGTH_SHORT).show();
@@ -57,13 +60,21 @@ public class QuizActivity extends AppCompatActivity {
         boolean correct = q.getAnswers()[focusIdx].isCorrect();
         this.model.answered(correct);
 
+        // each 3 question
+        if (stat.getAnsweredCount() % 3 == 0) {
+            Intent intent = new Intent(this, ResultActivity.class);
+            intent.putExtra(ResultActivity.DOING_GOOD, stat.getRountCorrectCount() >= 2);
+            this.startActivity(intent);
+        }
+
         // just finish last question
         q = this.model.getQuestions();
         if (q == null) {
             this.endQuiz();
             return;
         }
-        this.updateQuiz(this.model.getStatistic(), q);
+
+        this.updateQuiz(stat, q);
     }
 
     public void resetChoice(View resetButton) {
