@@ -17,7 +17,7 @@ import jp.ac.hal.kadai07_ih13b_11.model.QuizContentParser;
 import jp.ac.hal.kadai07_ih13b_11.model.QuizStat;
 
 public class QuizActivity extends AppCompatActivity {
-    private Quiz model;
+    private Quiz model = new Quiz();
 
     private TextView txtQue;
     private RadioGroup rbgAns;
@@ -27,15 +27,15 @@ public class QuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
+        this.txtQue = this.findViewById(R.id.question);
+        this.rbgAns = this.findViewById(R.id.answer_group);
+
         try {
-            this.model = new Quiz(new QuizContentParser().parse(this.getResources().getXml(R.xml.quiz)));
+            this.model.load(new QuizContentParser().parse(this.getResources().getXml(R.xml.quiz)));
         } catch (Exception ex) {
             Toast.makeText(this.getApplicationContext(), "fail to obtain quiz content", Toast.LENGTH_LONG).show();
             // Log.e("Quiz", "QuizActivity onCreate: fail to read/parse quiz xml", ex);
         }
-
-        this.txtQue = this.findViewById(R.id.question);
-        this.rbgAns = this.findViewById(R.id.answer_group);
 
         this.updateQuiz(this.model.getStatistic(), this.model.getQuestions());
     }
@@ -77,8 +77,15 @@ public class QuizActivity extends AppCompatActivity {
         this.updateQuiz(stat, q);
     }
 
-    public void resetChoice(View resetButton) {
-        this.rbgAns.clearCheck();
+    public void resetQuiz(View resetButton) {
+        try {
+            this.model.reset(new QuizContentParser().parse(this.getResources().getXml(R.xml.quiz)));
+        } catch (Exception ex) {
+            Toast.makeText(this.getApplicationContext(), "fail to obtain quiz content", Toast.LENGTH_LONG).show();
+            // Log.e("Quiz", "QuizActivity onCreate: fail to read/parse quiz xml", ex);
+        }
+
+        this.updateQuiz(this.model.getStatistic(), this.model.getQuestions());
     }
 
     private void endQuiz() {
