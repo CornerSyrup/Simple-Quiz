@@ -22,7 +22,7 @@ public class QuizContentParser {
      * @throws IOException            Thrown when fail to load quiz xml content.
      * @throws XmlPullParserException Thrown when the parser's content is invalid.
      */
-    public List<Question> Parse(XmlResourceParser parser) throws IOException, XmlPullParserException {
+    public List<Question> parse(XmlResourceParser parser) throws IOException, XmlPullParserException {
         Stack<String> tagTrace = new Stack<>();
 
         int ev = parser.next();
