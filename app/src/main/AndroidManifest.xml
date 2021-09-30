@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Kadai07_ih13b_11">
         <activity
+            android:name=".QuizActivity"
+            android:exported="true">
+        </activity>
+        <activity
             android:name=".IntroActivity"
             android:exported="true">
             <intent-filter>
