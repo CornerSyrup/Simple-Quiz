@@ -36,35 +36,52 @@ public class QuizActivity extends AppCompatActivity {
         this.txtQue = this.findViewById(R.id.question);
         this.rbgAns = this.findViewById(R.id.answer_group);
 
-        this.updateQuestion(this.model.getStatistic(), this.model.getQuestions());
-        ((TextView) this.findViewById(R.id.question_count)).setText(Integer.toString(this.model.getStatistic().getQuestionCount()));
+        this.updateQuiz(this.model.getStatistic(), this.model.getQuestions());
     }
 
     public void answerQuestion(View answerButton) {
-        int focusIdx = this.rbgAns.indexOfChild(this.findViewById(this.rbgAns.getCheckedRadioButtonId()));
-        boolean correct = this.model.getQuestions().getAnswers()[focusIdx].isCorrect();
-        
+        // already ended
+        Question q = this.model.getQuestions();
+        if (q == null) {
+            this.endQuiz();
+            return;
+        }
+
+        int i = this.rbgAns.getCheckedRadioButtonId();
+        if (i < 0) {
+            Toast.makeText(this.getApplicationContext(), this.getText(R.string.blank_answer_warn), Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        int focusIdx = this.rbgAns.indexOfChild(this.findViewById(i));
+        boolean correct = q.getAnswers()[focusIdx].isCorrect();
         this.model.answered(correct);
 
-        Question q = this.model.getQuestions();
-        if (q != null) {
-            this.updateQuestion(this.model.getStatistic(), q);
-        } else {
-            this.updateStat(this.model.getStatistic());
+        // just finish last question
+        q = this.model.getQuestions();
+        if (q == null) {
+            this.endQuiz();
+            return;
         }
+        this.updateQuiz(this.model.getStatistic(), q);
     }
 
     public void resetChoice(View resetButton) {
         this.rbgAns.clearCheck();
     }
 
-    private void updateQuestion(QuizStat stat, Question quest) {
+    private void endQuiz() {
+        this.updateStat(this.model.getStatistic());
+    }
+
+    private void updateQuiz(QuizStat stat, Question quest) {
         this.updateStat(stat);
         this.updateQuestion(quest);
     }
 
     private void updateStat(QuizStat stat) {
         ((TextView) this.findViewById(R.id.correct_count)).setText(Integer.toString(stat.getCorrectCount()));
+        ((TextView) this.findViewById(R.id.question_count)).setText(Integer.toString(this.model.getStatistic().getAnsweredCount()));
     }
 
     private void updateQuestion(Question question) {
