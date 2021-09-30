@@ -47,7 +47,13 @@ public class QuizActivity extends AppCompatActivity {
             return;
         }
 
-        int focusIdx = this.rbgAns.indexOfChild(this.findViewById(this.rbgAns.getCheckedRadioButtonId()));
+        int i = this.rbgAns.getCheckedRadioButtonId();
+        if (i < 0) {
+            Toast.makeText(this.getApplicationContext(), this.getText(R.string.blank_answer_warn), Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        int focusIdx = this.rbgAns.indexOfChild(this.findViewById(i));
         boolean correct = q.getAnswers()[focusIdx].isCorrect();
         this.model.answered(correct);
 
