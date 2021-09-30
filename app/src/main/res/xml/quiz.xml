@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quiz>
+    <question>
+        冬に寿司ご飯を作る時すぐに硬くなってしまうのを防ぐためには何を少し多めに入れると良いでしょうか
+        <answer correct="true">砂糖</answer>
+        <answer>お酢</answer>
+        <answer>塩</answer>
+    </question>
+    <question>
+        厚地の物をすぐに乾かすにはどこで干すのが良いでしょうか？
+        <answer>熱い場所</answer>
+        <answer correct="true">高い場所</answer>
+        <answer>暗い場所</answer>
+    </question>
+    <question>
+        干しシイタケを早く戻したい場合、何を少し加えるとすぐに戻るでしょうか？
+        <answer>片栗粉</answer>
+        <answer>塩</answer>
+        <answer correct="true">砂糖</answer>
+    </question>
+    <question>
+        バスで乗り物酔いがしにくい場所はどこでしょうか？
+        <answer>一番前</answer>
+        <answer>一番後ろ</answer>
+        <answer correct="true">真ん中の席</answer>
+    </question>
+    <question>
+        レバーのくさみを取るには何を使えば良いでしょうか？
+        <answer correct="true">牛乳</answer>
+        <answer>食塩水</answer>
+        <answer>レモン汁</answer>
+    </question>
+    <question>
+        育毛剤を使わずに髪の毛を増やすおすすめの方法はどれでしょうか？
+        <answer>わかめを食べる</answer>
+        <answer correct="true">頭皮マッサージをする</answer>
+        <answer>お湯だけで洗う</answer>
+    </question>
+    <question>
+        原作のサザエさん未来予想図では、アニメとは違いタラちゃんに妹がいる事になっているのですがタラちゃんの妹の名前は何でしょうか？
+        <answer>ホタテちゃん</answer>
+        <answer correct="true">ヒトデちゃん</answer>
+        <answer>アワビちゃん</answer>
+    </question>
+    <question>
+        上手に障子貼りをするにはどんな天気の日にするのが良いでしょうか？
+        <answer correct="true">雨の日</answer>
+        <answer>晴れの日</answer>
+        <answer>曇りの日</answer>
+    </question>
+    <question>
+        透明ガラスの汚れを綺麗に落とすには何で拭くのが良いでしょうか？
+        <answer>ぬれぶきん</answer>
+        <answer correct="true">湿った新聞紙</answer>
+        <answer>乾いたタオル</answer>
+    </question>
+    <question>
+        医学的にストレスという言葉が使われるようになったのは何年前でしょうか？
+        <answer>200年前</answer>
+        <answer correct="true">80年前</answer>
+        <answer>1000年前</answer>
+    </question>
+</quiz>
