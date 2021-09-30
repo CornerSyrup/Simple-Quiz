@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Kadai07_ih13b_11">
         <activity
+            android:name=".FinalActivity"
+            android:exported="true" />
+        <activity
             android:name=".ResultActivity"
             android:exported="true" />
         <activity

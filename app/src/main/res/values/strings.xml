@@ -9,4 +9,7 @@
     <string name="perform_unwell">もうひと踏ん張り！</string>
     <string name="blank_answer_warn">選択肢をどれか選んでください</string>
     <string name="continue_quiz">クイズを続きます</string>
+    <string name="farewell_description">遊んで呉でありがとう</string>
+    <string name="farewell_text">まだ遊んでね</string>
+    <string name="farewell_result_format">%1$d問中%2$d問正解 正解率%3$d%%</string>
 </resources>
