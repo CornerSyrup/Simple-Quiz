@@ -16,10 +16,10 @@ public class ResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_result);
 
         if (this.getIntent().getBooleanExtra(ResultActivity.DOING_GOOD, false)) {
-            ((ImageView) this.findViewById(R.id.result_image)).setImageDrawable(this.getDrawable(R.drawable.correct));
+            ((ImageView) this.findViewById(R.id.result_image)).setImageDrawable(this.getDrawable(R.drawable.perform_well));
             ((TextView) this.findViewById(R.id.result_text)).setText(this.getText(R.string.perform_well));
         } else {
-            ((ImageView) this.findViewById(R.id.result_image)).setImageDrawable(this.getDrawable(R.drawable.wrong));
+            ((ImageView) this.findViewById(R.id.result_image)).setImageDrawable(this.getDrawable(R.drawable.perform_unwell));
             ((TextView) this.findViewById(R.id.result_text)).setText(this.getText(R.string.perform_unwell));
         }
     }
